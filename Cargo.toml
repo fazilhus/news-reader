@@ -1,4 +1,3 @@
-workspace = { members = ["newsapi"] }
 [package]
 name = "news-reader"
 version = "0.1.0"
