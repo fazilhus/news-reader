@@ -6,6 +6,7 @@ use serde::Deserialize;
 const BASE_URL: &str = "https://newsapi.org/v2";
 
 #[derive(thiserror::Error, Debug)]
+#[non_exhaustive]
 pub enum NewsAPIError {
     #[error("Failed fetching articles")]
     RequestFailed(#[from] ureq::Error),
@@ -135,6 +136,7 @@ impl NewsAPI {
         let request = client
             .request(Method::GET, url)
             .header("Authorization", &self.api_key)
+            .header("User-Agent", "news-reader")
             .build().map_err(|e| NewsAPIError::AsyncRequestFailed(e))?;
 
         let response: NewsAPIResponse = client
