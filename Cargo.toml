@@ -3,8 +3,14 @@ name = "news-reader"
 version = "0.1.0"
 edition = "2021"
 
+description = "simple cli tool for gathering top news"
+licence = "MIT"
+authors = ["fazilhus"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 newsapi = {path = "./newsapi"}
-colour = "0.7"
+dotenv = "0.15.0"
+crossterm = "0.27.0"
+termimad = "0.29.1"
